@@ -1,42 +1,148 @@
 import './Form.scss'
 import IconAddForm from '../Icons/IconAddForm'
+import { useState } from 'react'
 
 function Form() {
+  const initialeState = {
+    firstName: '',
+    lastName: '',
+    dateOfBirth: '',
+    startDate: '',
+    street: '',
+    city: '',
+    zipCode: '',
+    departement: '',
+  }
+
+  const [employee, setEmployee] = useState(initialeState)
+
+  const handleChange = (e) => {
+    setEmployee({ ...employee, [e.target.id]: e.target.value })
+  }
+
+  const handleSubmit = (e) => {
+    e.preventDefault()
+    const newEmployee = {
+      firstName: employee.firstName,
+      lastName: employee.lastName,
+      dateOfBirth: employee.dateOfBirth,
+      startDate: employee.startDate,
+      street: employee.street,
+      city: employee.city,
+      zipCode: employee.zipCode,
+      departement: employee.departement,
+    }
+    console.log({ ...newEmployee })
+    console.log(newEmployee.id)
+    localStorage.setItem('newEmployee', JSON.stringify(newEmployee))
+  }
+
+  const {
+    firstName,
+    lastName,
+    dateOfBirth,
+    startDate,
+    street,
+    city,
+    state,
+    zipCode,
+    departement,
+  } = employee
+
+  const btn =
+    firstName === '' ||
+    lastName === '' ||
+    dateOfBirth === '' ||
+    startDate === '' ||
+    street === '' ||
+    city === '' ||
+    state === '' ||
+    zipCode === '' ||
+    departement === '' ? (
+      <button type="submit" className="add-employee-button" disabled>
+        Add an employee
+      </button>
+    ) : (
+      <button type="submit" className="add-employee-button">
+        Add an employee
+      </button>
+    )
   return (
-    <form action="" id="add-employee-form">
+    <form action="" onSubmit={handleSubmit} id="add-employee-form">
       <IconAddForm />
       <div className="input-wrapper">
         <label htmlFor="firstName">FirstName</label>
-        <input type="text" autoComplete="off" id="firstName" />
+        <input
+          type="text"
+          autoComplete="off"
+          id="firstName"
+          onChange={handleChange}
+        />
 
         <label htmlFor="lastName">LastName</label>
-        <input type="text" autoComplete="off" id="LastName" />
+        <input
+          type="text"
+          autoComplete="off"
+          id="LastName"
+          onChange={handleChange}
+        />
 
         <label htmlFor="datOfBirth">datOfBirth</label>
         {/* change datePickers */}
-        <input type="text" autoComplete="off" />
+        <input type="text" autoComplete="off" onChange={handleChange} />
 
         {/* change datePickers */}
         <label htmlFor="startDate">startDate</label>
-        <input type="text" autoComplete="off" id="startDate" />
+        <input
+          type="text"
+          autoComplete="off"
+          id="startDate"
+          onChange={handleChange}
+        />
 
         <label htmlFor="street">street</label>
-        <input type="text" autoComplete="off" id="street" />
+        <input
+          type="text"
+          autoComplete="off"
+          id="street"
+          onChange={handleChange}
+        />
 
         <label htmlFor="city">city</label>
-        <input type="text" autoComplete="off" id="city" />
+        <input
+          type="text"
+          autoComplete="off"
+          id="city"
+          onChange={handleChange}
+        />
 
         <label htmlFor="zipCode">zipCode</label>
-        <input type="text" autoComplete="off" id="zipCode" />
+        <input
+          type="text"
+          autoComplete="off"
+          id="zipCode"
+          onChange={handleChange}
+        />
 
         {/* change React-select */}
         <label htmlFor="state">state</label>
-        <input type="text" autoComplete="off" id="state" />
+        <input
+          type="text"
+          autoComplete="off"
+          id="state"
+          onChange={handleChange}
+        />
 
         {/* change React-select */}
         <label htmlFor="departement">departement</label>
-        <input type="text" autoComplete="off" id="departement" />
+        <input
+          type="text"
+          autoComplete="off"
+          id="departement"
+          onChange={handleChange}
+        />
       </div>
+      {btn}
     </form>
   )
 }
