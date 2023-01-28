@@ -1,12 +1,10 @@
 import './Form.scss'
+import IconAddForm from '../Icons/IconAddForm'
 
 function Form() {
   return (
     <form action="" id="add-employee-form">
-      <img
-        // src=""
-        alt="Health Wealth logo brand name"
-      />
+      <IconAddForm />
       <div className="input-wrapper">
         <label htmlFor="firstName">FirstName</label>
         <input type="text" autoComplete="off" id="firstName" />
