@@ -1,9 +1,11 @@
 import { useLocation, Link } from 'react-router-dom'
-import './Navbar.scss'
-import IconLogoDesign from '../Icons/IconLogoDesign'
-import IconBrand from '../Icons/IconBrand'
+
+import IconAdd from '../../components/Icons/IconAdd'
+import IconBrand from '../../components/Icons/IconBrand'
 import IconList from '../Icons/IconList'
-import IconAdd from '../Icons/IconAdd'
+import IconLogoDesign from '../Icons/IconLogoDesign'
+
+import './Navbar.scss'
 
 function Navbar() {
   const path = useLocation().pathname
@@ -19,15 +21,23 @@ function Navbar() {
             className="nav-logo-brand"
             alt="Health Wealth logo brand name"
           />
+        </div>
+        <div className="nav-item nav-menu">
           <h1>HRnet Employees</h1>
           {path === '/' ? (
-            <Link to="./Employees" className="nav-menu-choise">
-              <IconAdd />
+            <Link to="./Employees" className="nav-menu-choice">
+              <IconList
+                className="nav-ico"
+                alt="Health Wealth logo menu list"
+              />
               <span>Current</span>
             </Link>
           ) : (
-            <Link to="/" className="nav-menu-choise">
-              <IconList />
+            <Link to="/" className="nav-menu-choice">
+              <IconAdd
+                className="nav-ico"
+                alt="Health Wealth logo Add employee"
+              />
               <span>Create</span>
             </Link>
           )}
@@ -37,4 +47,5 @@ function Navbar() {
     </>
   )
 }
+
 export default Navbar

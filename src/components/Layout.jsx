@@ -5,13 +5,11 @@ import Navbar from './Navbar/Navbar'
 function Layout() {
   return (
     <>
-      <div className="Layout">
-        <Navbar />
-        <Routes>
-          <Route path="/" element={<Home />} />
-          {/* <Route path="/about" element={<About />} /> */}
-        </Routes>
-      </div>
+      <Navbar />
+      <Routes>
+        <Route path="/" element={<Home />} />
+        {/* <Route path="/about" element={<About />} /> */}
+      </Routes>
     </>
   )
 }

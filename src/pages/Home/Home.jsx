@@ -1,4 +1,5 @@
 import Form from '../../components/Form/Form'
+import './Home.scss'
 
 function Home() {
   return (
