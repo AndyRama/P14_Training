@@ -11,3 +11,21 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+h1 {
+  font-family: 'Open Sans Condensed', sans-serif;
+}
+
+/* COLORS */
+:root {
+  --colored-bg: #fafbf9;
+  --primary: #483e37;
+  --secondary: #6c6753;
+  --tertiary: #cad3ae;
+  --light: #fff;
+  --dark: #24221c;
+  --error: #f95;
+  --disabled: #cfcfcf;
+  --table-row: #eef1e3;
+  --table-hover: #cad3ae;
+}
