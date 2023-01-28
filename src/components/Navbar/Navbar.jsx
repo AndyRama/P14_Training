@@ -15,20 +15,20 @@ function Navbar() {
           <h1>HRnet</h1>
           {path === '/' ? (
             <Link to="./Employees" className="nav-menu-choise">
-              <img
+              {/* <img
                 className="nav-ico"
                 // src={icolist}
                 alt="health W"
-              />
+              /> */}
               <span>Current</span>
             </Link>
           ) : (
             <Link to="/" className="nav-menu-choise">
-              <img
+              {/* <img
                 className="nav-ico"
                 //src={logoBrand}
                 alt=""
-              />
+              /> */}
               <span>Create</span>
             </Link>
           )}
